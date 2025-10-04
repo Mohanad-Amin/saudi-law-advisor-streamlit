@@ -61,7 +61,7 @@ class LawRetriever:
         query_embedding = self.embedding_model.encode([query])
         similarities = cosine_similarity(query_embedding, self.law_embeddings)
         # Get top 5 initial candidates
-        top_indices = np.argsort(similarities[0])[::-1][:5]
+        top_indices = np.argsort(similarities[0])[::-1][:10]
         newly_fetched_sources = [{'law_text': self.law_texts_list[int(i)], 'source_index': int(i)} for i in top_indices]
         
         # --- 2. Combine with historical sources for re-ranking ---
