@@ -106,7 +106,7 @@ class LawRetriever:
         user_prompt_with_context = f"بناءً على المصادر التالية، أجب على السؤال.\n\n## المصادر:\n{context_for_gpt}\n\n## السؤال:\n{query}"
         messages.append({"role": "user", "content": user_prompt_with_context})
         
-        response = self.openai_client.chat.completions.create(model="gpt-5", messages=messages, temperature=0.1)
+        response = self.openai_client.chat.completions.create(model="gpt-4o", messages=messages, temperature=0.1)
         gpt_answer = response.choices[0].message.content
 
         return {"answer": gpt_answer, "sources": final_sources}
